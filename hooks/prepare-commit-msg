@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+which perl 2>/dev/null
+
+if [ ${?} -ne 0 ]
+then
+    echo "Please install perl"
+fi
+
+story_no="TODO"
+#perl -i.bak -ne 's/^/[$ENV{'story_no'}] /; print' "$1" ;
+sed -i.bak -e "1s/^/[$story_no] /" $1
+
